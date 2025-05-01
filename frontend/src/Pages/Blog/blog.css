@@ -1,0 +1,7 @@
+.all-blog-section .blog-title {
+	font-size: 18px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	color: var(--text-primary);
+}

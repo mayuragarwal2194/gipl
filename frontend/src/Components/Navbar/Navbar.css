@@ -1,0 +1,493 @@
+/* General Navbar Styles */
+.navbar-section {
+  transition: all ease-in-out 0.3s;
+  z-index: 10;
+  border-bottom: 1px solid transparent;
+  width: 100%;
+}
+
+/* Sticky Navbar */
+.navbar-section.sticky {
+  position: fixed !important;
+  top: 0;
+  /* background-color: #fff; */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+/* Reveal Effect for Navbar */
+.navbar-section.reveal {
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+  z-index: 99;
+  border-bottom: 1px solid #1c1c1c62;
+}
+
+/* Inside Banner Styles */
+.navbar-section.inside-banner {
+  background-color: rgba(255, 255, 255, 0);
+  /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.187); */
+  backdrop-filter: blur(2px);
+}
+
+.navbar-section.inside-banner,
+.navbar-section.inside-banner .nav-item a,
+.navbar-section.inside-banner .nav-icons svg path {
+  color: #fff;
+  /* background-color: transparent; */
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+}
+
+.navbar-section.inside-banner.notHomeCss .nav-icons svg path {
+  color: var(--black);
+}
+
+.navbar-section.inside-banner.notHomeCss {
+  border-bottom: 1px solid #1c1c1c;
+}
+
+.navbar-section.inside-banner.notHomeCss,
+.navbar-section.inside-banner.notHomeCss .nav-item a,
+.navbar-section.inside-banner.notHomeCss .nav-icons li i,
+.navbar-section.inside-banner.notHomeCss .dropdown-hover .dropbtn {
+  color: var(--black);
+}
+
+.navbar-section.on-top,
+.navbar-section.sticky,
+.navbar-section.navbar-visible,
+.navbar-section:hover .nav-item a,
+.navbar-section.sticky .nav-item a {
+  --black: #000000;
+  color: var(--black);
+  background-color: var(--white) !important;
+  z-index: 99;
+  border-bottom: 1px solid #1c1c1c;
+  box-shadow: unset !important;
+  backdrop-filter: unset !important;
+  -webkit-backdrop-filter: unset !important;
+}
+
+.navbar-section:hover .nav-item span {
+  --black: #000000;
+  color: var(--black);
+}
+
+.navbar-section:hover {
+  background-color: var(--white) !important;
+  z-index: 99;
+  border-bottom: 1px solid #1c1c1c;
+  box-shadow: unset !important;
+  backdrop-filter: unset !important;
+  -webkit-backdrop-filter: unset !important;
+}
+
+.navbar-section:hover .store-logo-wrapper {
+  color: var(--black) !important;
+}
+
+/* Navbar Right Section */
+/* .navbar-section .navbar-right,
+.navbar-section .navbar-right .nav-icons {
+  gap: 20px;
+} */
+
+.search-cart {
+  gap: 20px;
+}
+
+.navbar-section .navbar-right .nav-icons i {
+  font-size: 24px;
+}
+
+.navbar-section .navbar-right,
+.navbar-section .navbar-nav {
+  flex: 1;
+}
+
+/* Dropdown Hover */
+.dropdown-hover .dropbtn {
+  font-size: 16px;
+  color: var(--white);
+  padding: 24px 0;
+  transition: all ease 0.2s;
+}
+
+.dropdown-hover:hover .dropdown-content {
+  display: block;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  background-color: var(--white);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  position: absolute;
+  /* display: none; */
+  border-radius: 0 0 12px 12px;
+  transition: all ease 0.2s;
+  width: 90%;
+  right: -50%;
+  min-height: 60vh !important;
+}
+
+.user-dropdown {
+  padding: 0 20px;
+}
+
+.user-dropdown .dropdown-content {
+  min-width: 20rem;
+}
+
+.dropdown-content {
+  color: var(--text-secondary);
+  text-decoration: none;
+  text-align: left;
+  transition: all ease 0.2s;
+  font-size: 12px;
+  fill: var(--text-secondary) !important;
+}
+
+.dropdown-content a,
+.dropdown-content path {
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  transition: all ease 0.2s;
+  font-size: 12px;
+  fill: var(--text-secondary) !important;
+}
+
+.dropdown-content a:hover,
+.dropdown-content a:hover path {
+  color: var(--primary);
+  fill: var(--primary) !important;
+  background-color: #0000001d;
+}
+
+/* Mega Menu */
+.mega-menu {
+  --black: #1c1c1c4d;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 1px solid var(--black);
+  padding: 24px 0;
+}
+
+/* Mega Nav Styles */
+.mega-navs {
+  flex-shrink: 0;
+}
+
+.mega-navs .mega-nav:first-child,
+.mega-navs .mega-nav:last-child {
+  margin-top: 0;
+}
+
+.mega-navs .mega-nav.active {
+  color: var(--primary);
+}
+
+.mega-navs .parent-category,
+.dropdown-content h5 {
+  --black: #000000;
+  color: var(--black) !important;
+  font-size: 0.9rem;
+}
+
+/* Mega Menu Links */
+.mega-menu a {
+  border-bottom: none !important;
+}
+
+.mega-childImg-link {
+  height: 124px !important;
+}
+
+.mega-childImg-link img {
+  object-position: top;
+}
+
+.mega-image-link {
+  width: 100% !important;
+  height: 240px;
+}
+
+.mega-image-link img {
+  border-radius: 12px;
+}
+
+/* Mega Collection Styles */
+.mega-collection,
+.mega-collection-child {
+  width: 135px;
+}
+
+.mega-collection-name {
+  writing-mode: vertical-rl;
+  /* Vertical text, right to left */
+  top: 50%;
+  right: 0;
+  font-size: 24px;
+  word-wrap: unset;
+  white-space: nowrap;
+  transform: translateY(-50%);
+  letter-spacing: 2.34px;
+}
+
+.mega-collection-child-name {
+  bottom: 0%;
+  left: 50%;
+  font-size: 16px;
+  transform: translateX(-50%);
+}
+
+.subcategory-nav-item span {
+  color: #000000;
+}
+
+/* Navbar Icons */
+.nav-icons li .nav-item a,
+.nav-icons li i {
+  color: var(--white);
+}
+
+.navbar-section.sticky i,
+.navbar-section.sticky .dropdown-hover .dropbtn {
+  color: #000000;
+  transition: all ease 0.2s;
+}
+
+.nav-icons li i {
+  font-size: 20px;
+}
+
+.navbar-section.on-top .nav-icons svg path,
+.navbar-section.sticky .nav-icons svg path {
+  stroke: black;
+}
+
+/* Desktop Menu */
+.navbar-section .desktop-menu .nav-item span {
+  padding: 27px 20px;
+  display: block;
+}
+
+.navbar-section .desktop-menu .nav-item:last-child span {
+  padding-right: 0;
+}
+
+.navbar-section .desktop-menu .nav-item:first-child {
+  margin-left: -20px;
+}
+
+.navbar-section .nav-item .nav-item-span:hover::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Store Logo */
+.navbar-section .store-logo {
+  width: 150px;
+  height: 45px;
+}
+
+.navbar-section.on-top .dropdown-hover .dropbtn {
+  --black: #000000;
+  color: var(--black);
+}
+
+.navbar-section.on-top .dropdown-hover svg path {
+  --black: #000000;
+  stroke: var(--black);
+}
+
+.navbar-section:hover .navbar-right i,
+.navbar-section:hover .dropdown-hover .dropbtn {
+  --black: #000000;
+  color: var(--black);
+}
+
+.navbar-section:hover .navbar-right svg path {
+  color: var(--black);
+}
+
+.navbar-section .nav-item span {
+  transition: all ease 0.2s;
+  font-size: 16px;
+}
+
+.navbar-section:hover .dropdown-hover .dropbtn {
+  --black: #000000;
+  color: var(--black) !important;
+}
+
+
+
+/* Miscellaneous Styles */
+.max-h-400 {
+  max-height: 400px;
+}
+
+.child-category {
+  font-size: .7rem !important;
+  color: #1c1c1ca6 !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.mega-navs ul li:last-child {
+  margin-bottom: 24px !important;
+}
+
+.best-seller-tag {
+  background-color: #070d10cc;
+  color: var(--accent);
+  top: 16px;
+  left: 16px;
+  padding: 5px 8px;
+  font-size: 12px;
+}
+
+.best-seller-tag-white {
+  --black: rgb(0, 0, 0, 0.65);
+  --white: #efefef;
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.mega-card {
+  text-align: center;
+}
+
+.every-section .img-overlay {
+  background: rgba(255, 255, 255, 0.20);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  top: 0;
+}
+
+.nav-item:hover .dropdown-content.mega-menu {
+  display: block;
+}
+
+.topCat-name {
+  top: 0%;
+  font-size: 18px;
+  width: 100%;
+  text-align: center;
+}
+
+.every-section {
+  width: 170px;
+  min-height: fit-content;
+}
+
+.every-image {
+  min-height: 200px;
+}
+
+.everything-text {
+  font-size: 13px;
+}
+
+.explore-btn {
+  font-size: 12px;
+  letter-spacing: normal;
+}
+
+.cart {
+  position: relative;
+}
+
+.cart .cart-count {
+  position: absolute;
+  bottom: 1px;
+  right: -2px;
+  background-color: red;
+  color: white;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+
+.wishlist-count {
+  background-color: var(--white);
+  width: 19px;
+  height: 19px;
+  color: var(--black);
+  font-size: 11px;
+  line-height: normal;
+  top: 0;
+  right: -9px;
+  transition: all ease 0.2s;
+}
+
+.navbar-section.sticky .wishlist-count,
+.navbar-section:hover .wishlist-count,
+.navbar-section.inside-banner.notHomeCss .wishlist-count {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+@media (min-width: 992px) {
+
+  /* Logo Behavior on Hover */
+  .navbar-section:hover .store-logo {
+    content: url('/images/logoBlack.png') !important;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .navbar-section .store-logo {
+    width: 120px;
+    height: auto;
+  }
+
+  .navbar-section.inside-banner {
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.187);
+    backdrop-filter: blur(2px);
+  }
+
+  .navbar-section:hover {
+    background-color: rgba(255, 255, 255, 0) !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.187) !important;
+    backdrop-filter: blur(2px) !important;
+    border-bottom: 0;
+  }
+
+  .navbar-section:hover .default-logo {
+    display: block !important;
+  }
+
+  .navbar-section:hover .navbar-right i,
+  .navbar-section:hover .dropdown-hover .dropbtn {
+    color: var(--white);
+  }
+
+  .navbar-section.sticky:hover,
+  .navbar-section.sticky:hover i {
+    background-color: var(--white) !important;
+    color: var(--black) !important;
+  }
+}
+
+.nav-user-profile {
+  width: 32px;
+  height: 32px;
+}

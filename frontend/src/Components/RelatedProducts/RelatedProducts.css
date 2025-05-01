@@ -1,0 +1,23 @@
+#relatedProduct-sliderContainer .itemnew {
+  padding: 0 16px !important;
+}
+
+.related-products-section .slick-slide {
+  text-align: left !important;
+  /* Align items to the left */
+}
+
+.related-products-section .slick-list {
+  justify-content: flex-start;
+  /* Ensure slider aligns left */
+}
+
+.related-products-section .slick-slide {
+  max-width: 324px;
+}
+
+@media (max-width: 576px) {
+  #relatedProduct-sliderContainer .itemnew {
+    padding: 0 5px !important;
+  }
+}

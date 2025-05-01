@@ -1,0 +1,21 @@
+.allProduct-page .sticky-sidebar {
+  position: sticky;
+  top: 116px; /* Adjust based on your header height, if any */
+  align-self: start; /* Enables scrolling within the sidebar if content overflows */
+}
+
+.allProduct-page .reset-btn:focus,
+.allProduct-page .form-select:focus
+{
+  box-shadow: none !important;
+}
+
+@media (max-width: 576px) {
+  .product-display-main{
+    width: 100% !important;
+  }
+
+  .mobile-filter-btn:focus{
+    box-shadow: none;
+  }
+}

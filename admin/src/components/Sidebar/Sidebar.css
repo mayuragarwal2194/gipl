@@ -1,0 +1,18 @@
+/* Add to your index.css or App.css */
+.sidebar {
+  background-color: #343a40;
+  color: white;
+}
+
+.sidebar .nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #495057;
+}
+
+.content {
+  padding-left: 20px;
+}

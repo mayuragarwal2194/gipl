@@ -1,0 +1,59 @@
+.product-header {
+  height: calc(100vh - 150px);
+  background-size: cover;
+  background-position: center;
+}
+
+.detail-banner-overlay{
+  background: #14131333; 
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.product-detail-section .special-features h2{
+  font-size: 45px;
+}
+
+.product-detail-section .special-features li::before{
+  content: '\f061'; /* Font Awesome icon code */
+  font-family: 'Font Awesome 5 Free'; /* Font Awesome font family */
+  font-weight: 900; /* Required for solid icons */
+  position: absolute;
+  left: 0;
+  top: 0.2rem; /* Adjust vertical alignment */
+  font-size: 1rem; /* Adjust icon size */
+  color: var(--primary-color); /* Adjust color */
+  transform: rotate(-45deg);
+}
+
+.product-about-image{
+  height: 420px;
+}
+
+.product-about-image img{
+  object-fit: cover;
+
+}
+
+@media (max-width: 576px) {
+  .product-header{
+    height: 213.33px;
+  }
+
+  .about-subproduct{
+    flex-direction: column;
+    gap: 32px !important;
+  }
+
+  .product-about-image{
+    width: 100% !important;
+    height: 197.33px;
+  }
+
+  .subproduct-description,
+  .special-features
+  {
+    width: 100% !important;
+  }
+}

@@ -1,0 +1,189 @@
+[
+  {
+    "name": "Rockfall Protection Netting",
+    "subCategoryId": "680b6e18b6371af6ad91aad0",
+    "featuredImage": "",
+    "bannerImage": "",
+    "subProducts": [
+      {
+        "name": "ROCKNET",
+        "aboutImage": "",
+        "description": [
+          "These are made and engineered to achieve extremely low strain and powerful tensile strengths of up to 300kN/M. A netting panel with rhomboidal holes is wrapped with a single continuous length of steel wire rope that is 8–10 mm in diameter and has a tensile strength of 1770 N/mm2. Typically, the holes are 300 mm by 300 mm. Each side of the rectangular netting panel is often 4-6 meters long.",
+          "Square/Rhomboidal Cross-Linked tiny aperture secondary DT meshes are commonly used in mesh steel wire rope panels to allow for the retention of tiny particles."
+        ],
+        "specialFeatures": [
+          "Exceptional tensile strength",
+          "Installing it is simple.",
+          "Better resistance to corrosion",
+          "Economical"
+        ],
+        "applications": []
+      },
+      {
+        "name": "STRONGNET",
+        "aboutImage": "",
+        "description": [
+          "In order to produce a product with high tensile strength at low strain and high punch strength with little deformation, steel wire ropes with a diameter of 8 to 10 mm are combined with mechanically woven double-twisted hexagonal steel wire netting with openings (IS 16014).",
+          "The rope spacing and hexagonal IS 16014 mesh type are intended to offer a range of strengths up to 200kN/m.",
+          "If a wire is severed for whatever reason, the netting won't unravel because of the hexagonal mesh's double twist."
+        ],
+        "specialFeatures": [
+          "Exceptional tensile strength",
+          "Installing it is simple.",
+          "Equitable allocation of stress",
+          "prevents the mesh from deforming unevenly.",
+          "Better resistance to corrosion",
+          "Economical"
+        ],
+        "applications": [
+          "Protection against Rockfalls",
+          "Protection of slopes"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Rockfall Barriers",
+    "subCategoryId": "680b6e18b6371af6ad91aad0",
+    "featuredImage": "",
+    "bannerImage": "",
+    "subProducts": [
+      {
+        "name": "Rigid Rockfall Barriers",
+        "aboutImage": "",
+        "description": [
+          "The purpose of rigid rockfall barriers is to provide unwavering protection against falling boulders. These sturdy structures, made of reinforced concrete, completely trap or divert falling debris without deforming."
+        ],
+        "specialFeatures": [
+          "Minimal distortion",
+          "Design Customisation",
+          "Installation in close range",
+          "The ability to scale energy capacities",
+          "Durability over a Long Period"
+        ],
+        "applications": [
+          "System for preventing rockfalls"
+        ]
+      },
+      {
+        "name": "Semi Rigid Rockfall Barrier",
+        "aboutImage": "",
+        "description": [
+          "Innovative steel constructions with a primary interception system of cables installed on strong steel supports firmly attached to the ground are known as semi-rigid rockfall barriers."
+        ],
+        "specialFeatures": [
+          "Adaptable and Energy-Saving Architecture",
+          "Economical Resolution",
+          "Adaptable Designs",
+          "Energy Capabilities That Are Scalable",
+          "Long-Term Sturdiness",
+          "Demonstrated Efficiency"
+        ],
+        "applications": [
+          "Rockfall protection system"
+        ]
+      },
+      {
+        "name": "Flexible Rock Fall barrier",
+        "aboutImage": "",
+        "description": [
+          "Flexible rockfall barriers are designed to withstand the most difficult situations, with a braking mechanism, steel supports, and high-strength wire mesh or rings."
+        ],
+        "specialFeatures": [
+          "High Absorption Capacity of Energy",
+          "Dynamic Adaptability",
+          "Sophisticated braking system",
+          "Adaptable Tensioning",
+          "Efficacious at All Energy Levels",
+          "Very Low Maintenance Needs",
+          "Sturdy and adaptable"
+        ],
+        "applications": [
+          "Rockfall protection system"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Geo-composite Reinforced Geomat",
+    "subCategoryId": "680b6e3eb6371af6ad91aad4",
+    "featuredImage": "",
+    "bannerImage": "",
+    "subProducts": [
+      {
+        "name": "Geo-composite Reinforced Geomat",
+        "aboutImage": "",
+        "description": [
+          "Geo-composite Geomat are polypropylene erosion control panels reinforced with double-twisted steel wire mesh intended for protection and growth of grass on slopes prone to surface erosion."
+        ],
+        "specialFeatures": [
+          "Even on steep slopes, installation is quick and simple.",
+          "Economical",
+          "Permits the development of vegetation"
+        ],
+        "applications": [
+          "Control of Slope Erosion",
+          "Protection of Slopes",
+          "Stabilisation of Slope",
+          "Pond Tailing"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Geo Membrane",
+    "subCategoryId": "680b6e3eb6371af6ad91aad4",
+    "featuredImage": "",
+    "bannerImage": "",
+    "subProducts": [
+      {
+        "name": "Smooth Geo Membrane",
+        "aboutImage": "",
+        "description": [
+          "Smooth geomembranes are premium impermeable liners made for applications requiring outstanding chemical and UV resistance as well as low permeability."
+        ],
+        "specialFeatures": [
+          "Low Permeability",
+          "Chemical Resistance",
+          "UV Resistance",
+          "Easy Installation",
+          "Cost-Effective",
+          "Versatile Applications"
+        ],
+        "applications": [
+          "Landfills",
+          "Reservoirs & Ponds",
+          "Mining Operations",
+          "Wastewater Treatment",
+          "Agricultural Projects",
+          "Environmental Protection"
+        ]
+      },
+      {
+        "name": "Textured Geomembrane",
+        "aboutImage": "",
+        "description": [
+          "Textured geomembranes are designed for projects requiring extra friction and stability, making them ideal for steep slopes and areas needing additional reinforcement."
+        ],
+        "specialFeatures": [
+          "Increased Friction",
+          "Enhanced Stability",
+          "Chemical & UV Resistance",
+          "Flexibility & Elongation",
+          "Improved Worker Safety",
+          "Multi-layered System Compatibility",
+          "Durable Performance"
+        ],
+        "applications": [
+          "Landfills",
+          "Leach Pads",
+          "Steep Slopes",
+          "Reservoirs & Ponds",
+          "Multi-layered Liner Systems",
+          "Erosion Control"
+        ]
+      }
+    ]
+  }
+]

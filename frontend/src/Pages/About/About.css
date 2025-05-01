@@ -1,0 +1,19 @@
+.page-banner img{
+  height: calc(100vh - 150px);
+}
+
+.about-video-section .banner-video{
+  height: 450px;
+}
+
+@media (max-width: 576px) {
+  .page-banner img,
+  .about-video-section .banner-video
+  {
+    height: auto;
+  }
+
+  .about-who-section .row{
+    flex-direction: row-reverse;
+  }
+}

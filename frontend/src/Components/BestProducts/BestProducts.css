@@ -1,0 +1,78 @@
+/* Css for best product section- Start */
+.best-section .best-tabs {
+  gap: 40px;
+  white-space: nowrap;
+}
+
+.best-section .best-tab {
+  color: var(--text-primary);
+  font-family: var(--large-font-family);
+  font-size: 16px;
+  font-weight: var(--large-font-weight);
+  letter-spacing: var(--large-letter-spacing);
+  line-height: var(--large-line-height);
+  text-transform: uppercase;
+}
+
+.best-section .best-tab.active {
+  border-bottom: 1px solid var(--text-primary);
+}
+
+#best-sliderContainer .itemnew {
+  padding: 0 16px;
+}
+
+.best-section .slick-next {
+  right: -25px;
+}
+
+.best-section .slick-prev {
+  left: -25px;
+  z-index: 1;
+}
+
+.best-section .slick-prev:before {
+  font-family: "Font Awesome 5 Free" !important;
+  content: "\f053" !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  font-weight: 900 !important;
+  color: var(--black);
+}
+
+.best-section .slick-next:before {
+  font-family: "Font Awesome 5 Free" !important;
+  content: "\f054" !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  font-weight: 900 !important;
+  color: var(--black);
+}
+
+/* Css for best product section- End */
+
+@media (max-width: 576px) {
+  #best-sliderContainer .itemnew {
+    padding: 0 5px;
+  }
+
+  .itemnew img {
+    height: 63vw !important;
+  }
+
+  .best-section .best-tabs {
+    gap: 16px;
+    justify-content: start !important;
+    padding-bottom: 8px;
+    overflow-x: scroll;
+    margin-top: 16px;
+  }
+
+  .best-section .best-tab {
+    font-size: 20px;
+  }
+
+  .best-section .slick-dots{
+    bottom: -36px;
+  }
+}

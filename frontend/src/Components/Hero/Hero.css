@@ -1,0 +1,40 @@
+.hero-section img {
+  max-height: 100vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+.hero-section .slick-next {
+  right: 25px;
+}
+
+.hero-section .slick-prev {
+  left: 25px;
+  z-index: 1;
+}
+
+.hero-section .slick-prev:before {
+  font-family: "Font Awesome 5 Free" !important;
+  content: "\f053" !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  font-weight: 900 !important;
+  color: var(--black);
+}
+
+.hero-section .slick-next:before {
+  font-family: "Font Awesome 5 Free" !important;
+  content: "\f054" !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  font-weight: 900 !important;
+  color: var(--black);
+}
+
+
+
+@media (min-width: 992px) {
+  .hero-section {
+    height: 100vh;
+  }
+}

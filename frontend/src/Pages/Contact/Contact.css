@@ -1,0 +1,36 @@
+.contact-left ul li i{
+  font-size: 24px;
+}
+.contact-left ul li h4{
+  font-family: var(--heading-font-family);
+}
+
+.contact-left .w-60{
+  width: 60%;
+}
+
+@media (max-width: 576px) {
+  .contact-form{
+    width: 100% !important;
+  }
+
+  .con-address,
+  .contact-left,
+  .contact-right
+  {
+    width: 100% !important;
+  }
+
+  .contact-right{
+    border: none !important;
+  }
+
+  .con-wrapper{
+    flex-direction: column-reverse;
+    gap: 48px;
+  }
+
+  .con-wrapper .contact-right .container{
+    padding: 0;
+  }
+}
