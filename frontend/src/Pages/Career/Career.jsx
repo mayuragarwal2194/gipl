@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './career.css'
+import './Career.css'
 import BtnFillBlack from '../../Components/Buttons/BtnFillBlack/BtnFillBlack';
 import CareerForm from './CareerForm/CareerForm';
 
