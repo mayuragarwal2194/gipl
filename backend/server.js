@@ -58,7 +58,6 @@ app.options("*", (req, res) => {
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-// Define root route to check server
 app.get("/", (req, res) => {
   res.send("Server is up and running!");
 });
