@@ -20,8 +20,8 @@ exports.adminLogin = async (req, res) => {
     // Set token in HTTP-Only Cookie
     res.cookie("adminToken", token, {
       httpOnly: true, // Prevents access via JavaScript (prevents XSS attacks)
-      secure: process.env.NODE_ENV === "production", // Ensures HTTPS in production
-      sameSite: "Strict", // Prevents CSRF attacks
+      secure: true, // Ensures HTTPS in production
+      sameSite: "None", // Prevents CSRF attacks
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 

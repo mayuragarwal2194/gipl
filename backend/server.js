@@ -21,11 +21,19 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-const allowedOrigins = ["http://localhost:5173", "http://localhost:5174"];
 
+const allowedOrigins = [
+  "http://localhost:5173",  // For local development
+  "http://localhost:5174",  // For local development (if any)
+  "https://admin.gajpatiindustries.com",  // Your admin frontend domain
+  "https://gajpatiindustries.com",  // If you have any other subdomains to allow
+];
+
+// CORS configuration
 app.use(
   cors({
     origin: (origin, callback) => {
+      // Allow no origin (for local testing) or check if the origin is allowed
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
@@ -33,14 +41,27 @@ app.use(
       }
     },
     credentials: true, // Allow sending cookies and authentication headers
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
     exposedHeaders: ["Content-Disposition"], // For file downloads
   })
 );
 
+// Handle preflight requests for CORS (necessary for browsers with complex requests)
+app.options("*", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");  // Or use allowedOrigins for production
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.sendStatus(200);
+});
+
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
+// Define root route to check server
+app.get("/", (req, res) => {
+  res.send("Server is up and running!");
+});
 
 // Import routes
 const careerRoutes = require("./routes/applicantRoutes");

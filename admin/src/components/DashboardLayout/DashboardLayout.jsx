@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { logoutAdmin } from "../../services/api";
 import { Outlet } from 'react-router-dom'; // This will render the specific content based on the route
-import Sidebar from '../Sidebar/SIdebar';
+import Sidebar from '../Sidebar/Sidebar';
 
 const DashboardLayout = () => {
   const navigate = useNavigate();
