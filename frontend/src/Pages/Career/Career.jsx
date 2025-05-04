@@ -67,7 +67,7 @@ const Career = () => {
                     onLoadedData={handleLoadedData}
                   >
                     <source
-                      src="/videos/myVideo.mov#t=0.5"
+                      src="/videos/myVideo.mp4#t=0.5"
                       type="video/mp4"
                     />
                   </video>
