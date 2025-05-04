@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ItemNew.css";
+import { API_BASE_URL } from "../../Services/api";
 
 const ItemNew = ({ image, itemName, id, isSubcategory = false }) => {
   const targetLink = isSubcategory ? `/subcategory/${id}` : `/product/${id}`;

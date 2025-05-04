@@ -147,3 +147,18 @@ exports.deleteSubCategory = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+// GET /api/subcategory/name/:name
+exports.getSubCategoryByName = async (req, res) => {
+  try {
+    const name = req.params.name;
+    const subCategory = await SubCategory.findOne({ name: { $regex: new RegExp(`^${name}$`, 'i') } }); // case-insensitive match
+
+    if (!subCategory) return res.status(404).json({ message: 'Subcategory not found' });
+    res.json(subCategory);
+  } catch (err) {
+    console.error("Error in getSubCategoryByName:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+

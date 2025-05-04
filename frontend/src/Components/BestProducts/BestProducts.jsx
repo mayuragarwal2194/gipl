@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import "./BestProducts.css";
 import ItemNew from "../ItemNew/ItemNew";
-import { fetchAllProducts } from "../../Services/api";
+import { API_BASE_URL, fetchAllProducts } from "../../Services/api";
 
 const BestProducts = () => {
   const [products, setProducts] = useState([]);
@@ -80,7 +80,8 @@ const BestProducts = () => {
   }, {});
 
   const productsToDisplay = groupedByCategory[activeTab] || [];
-
+  // console.log(productsToDisplay);
+  
   return (
     <section className="best-section section-padding text-center theme-bg">
       <div className="section-header">
@@ -113,7 +114,7 @@ const BestProducts = () => {
                     <ItemNew
                       key={product._id}
                       id={product._id}
-                      image={`http://localhost:5000/uploads/featured/${product.featuredImage}`}
+                      image={`${API_BASE_URL}/uploads/featured/${product.featuredImage}`}
                       itemName={product.name}
                       isSubcategory={false}
                     />

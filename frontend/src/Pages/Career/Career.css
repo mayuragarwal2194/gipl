@@ -49,3 +49,16 @@
 .great-place-section .section-head{
   margin-bottom: 54px !important;
 }
+
+@media (max-width:576px) {
+	.career-video{
+		width: 90vw;
+		height: 90vw;
+		margin: auto;
+	}
+
+	.career-top-bg{
+		margin-left: unset !important;
+		margin-top: 16px;
+	}
+}

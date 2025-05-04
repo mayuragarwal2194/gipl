@@ -62,19 +62,29 @@ const Hamburger = () => {
                 Home
               </Link>
             </li>
+            <li className='ps-0 py-2'>
+              <Link to={'/about'} className='text-decoration-none' onClick={closeMenu}>
+                About
+              </Link>
+            </li>
             <li className='ps-0 py-2' onClick={closeMenu}>
               <Link to={'/product'} className='text-decoration-none' onClick={closeMenu}>
                 Products
               </Link>
             </li>
             <li className='ps-0 py-2'>
-              <Link to={'/about'} className='text-decoration-none' onClick={closeMenu}>
-                About
+              <Link to={'/contact'} className='text-decoration-none' onClick={closeMenu}>
+                <span className="position-relative">Contact Us</span>
               </Link>
             </li>
             <li className='ps-0 py-2'>
-              <Link to={'/contact'} className='text-decoration-none' onClick={closeMenu}>
-                <span className="position-relative">Contact</span>
+              <Link to={'/blogs'} className='text-decoration-none' onClick={closeMenu}>
+                <span className="position-relative">Blogs</span>
+              </Link>
+            </li>
+            <li className='ps-0 py-2'>
+              <Link to={'/careers'} className='text-decoration-none' onClick={closeMenu}>
+                <span className="position-relative">Careers</span>
               </Link>
             </li>
           </ul>

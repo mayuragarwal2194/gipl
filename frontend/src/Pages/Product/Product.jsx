@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchAllProducts } from "../../Services/api";
+import { API_BASE_URL, fetchAllProducts } from "../../Services/api";
 import ItemNew from "../../Components/ItemNew/ItemNew";
 import './Product.css';
 
@@ -241,7 +241,7 @@ const Product = () => {
                   <div className="col" key={item._id}>
                     <ItemNew
                       id={item._id}
-                      image={`http://localhost:5000/uploads/featured/${item.featuredImage}`}
+                      image={`${API_BASE_URL}/uploads/featured/${item.featuredImage}`}
                       itemName={item.name}
                     />
                   </div>

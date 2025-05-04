@@ -385,3 +385,9 @@ body{
     margin-bottom: 40px;
   }
 }
+
+@media (min-width: 992px) {
+  .w-lg-50{
+    width: 50%;
+  }
+}

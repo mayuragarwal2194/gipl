@@ -78,3 +78,22 @@ export const getAllCategories = async () => {
   return res.json();
 };
 
+export const fetchProductsBySubCategory = async (subCategoryId) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/v1/products/subcategory/${subCategoryId}`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch products by subcategory");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error in fetchProductsBySubCategory:", error);
+    throw error;
+  }
+};
+
+export const fetchSubCategoryByName = async (name) => {
+  const res = await fetch(`${API_BASE_URL}/api/v1/subcategory/name/${name}`);
+  if (!res.ok) throw new Error("Failed to fetch subcategory by name");
+  return res.json();
+};
+

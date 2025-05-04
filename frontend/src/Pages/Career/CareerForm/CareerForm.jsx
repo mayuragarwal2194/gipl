@@ -92,61 +92,61 @@ const CareerForm = ({ submitButtonText = "Submit Application" }) => {
       <div className="container">
         <div className="career-form">
           <form onSubmit={handleSubmit}>
-            <div className="d-flex w-100 gap-3">
-              <div className="mb-3 w-50">
+            <div className="d-lg-flex w-100 gap-3">
+              <div className="mb-3 w-lg-50">
                 <label htmlFor="name" className="form-label cursor-pointer">Full Name</label>
                 <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} required className="form-control" autoComplete="name" />
               </div>
 
-              <div className="mb-3 w-50">
+              <div className="mb-3 w-lg-50">
                 <label htmlFor="dob" className="form-label cursor-pointer">Birth Date</label>
                 <input type="date" name="dob" id="dob" value={formData.dob} onChange={handleChange} required className="form-control" />
               </div>
             </div>
 
-            <div className="d-flex w-100 gap-3">
-              <div className="mb-3 w-50">
+            <div className="d-lg-flex w-100 gap-3">
+              <div className="mb-3 w-lg-50">
                 <label htmlFor="phone" className="form-label cursor-pointer">Phone Number</label>
                 <input type="tel" name="phone" id="phone" value={formData.phone} onChange={handleChange} required className="form-control" autoComplete="on" />
               </div>
 
-              <div className="mb-3 w-50">
+              <div className="mb-3 w-lg-50">
                 <label htmlFor="email" className="form-label cursor-pointer">Email</label>
                 <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} required className="form-control" autoComplete="email" />
               </div>
             </div>
 
-            <div className="d-flex w-100 gap-3">
-              <div className="mb-3 w-50">
+            <div className="d-lg-flex w-100 gap-3">
+              <div className="mb-3 w-lg-50">
                 <label htmlFor="addressLine1" className="form-label cursor-pointer">Address Line 1</label>
                 <input type="text" name="addressLine1" id="addressLine1" value={formData.addressLine1} onChange={handleChange} required className="form-control" />
               </div>
 
-              <div className="mb-3 w-50">
+              <div className="mb-3 w-lg-50">
                 <label htmlFor="addressLine2" className="form-label cursor-pointer">Address Line 2</label>
                 <input type="text" name="addressLine2" id="addressLine2" value={formData.addressLine2} onChange={handleChange} className="form-control" />
               </div>
             </div>
 
-            <div className="d-flex w-100 gap-3">
-              <div className="mb-3 w-50">
+            <div className="d-lg-flex w-100 gap-3">
+              <div className="mb-3 w-lg-50">
                 <label htmlFor="city" className="form-label cursor-pointer">City</label>
                 <input type="text" name="city" id="city" value={formData.city} onChange={handleChange} required className="form-control" />
               </div>
 
-              <div className="mb-3 w-50">
+              <div className="mb-3 w-lg-50">
                 <label htmlFor="state" className="form-label cursor-pointer">State</label>
                 <input type="text" name="state" id="state" value={formData.state} onChange={handleChange} required className="form-control" />
               </div>
             </div>
 
-            <div className="d-flex w-100 gap-3">
-              <div className="mb-3 w-50">
+            <div className="d-lg-flex w-100 gap-3">
+              <div className="mb-3 w-lg-50">
                 <label htmlFor="zip" className="form-label cursor-pointer">Zip Code</label>
                 <input type="text" name="zip" id="zip" value={formData.zip} onChange={handleChange} required className="form-control" />
               </div>
 
-              <div className="mb-3 w-50">
+              <div className="mb-3 w-lg-50">
                 <label htmlFor="resume" className="form-label cursor-pointer">Resume (PDF only)</label>
                 <input type="file" name="resume" id="resume" accept="application/pdf" onChange={handleFileChange} required className="form-control" />
               </div>

@@ -28,14 +28,14 @@ const Career = () => {
         <section className='career-hero-section section-padding'>
           <div className="container">
             <div className="d-lg-flex gap-5 align-items-center">
-              <div className="w-50 d-flex flex-column justify-content-between gap-4">
+              <div className="w-lg-50 d-flex flex-column justify-content-between gap-4">
                 <h4 className="career-head text-uppercase fw-normal letter-32 line-height-24">
                   Join the team
                 </h4>
-                <p className='career-description w-100 mb-0 pe-3'>
+                <p className='career-description w-100 mb-0 pe-lg-3'>
                   GIPL (Gajpati Industry Pvt Ltd) is an employee-centered company that values autonomy, growth, and innovation. We believe that empowered employees drive success, so we foster a culture where creativity, independent thinking, and efficiency thrive. By providing a supportive work environment, we enable our team to take ownership of their work and make meaningful contributions.
                 </p>
-                <p className='career-description pe-3'>
+                <p className='career-description pe-lg-3'>
                   We actively support self-development and career advancement, providing opportunities to learn and grow. Our development team is always looking for talented individuals who thrive in a collaborative and excellence-driven environment.
                 </p>
                 <p className='career-description mb-0'>Navigate below to see our current open positions!</p>
@@ -45,7 +45,7 @@ const Career = () => {
                 </button> */}
                 <BtnFillBlack btn_name={'See Options'} link={'/about'} />
               </div>
-              <div className="w-50 d-flex">
+              <div className="w-lg-50 d-lg-flex mt-5 mt-lg-0">
                 <div className="career-video position-relative">
                   {isLoading && (
                     <div className="loading-spinner position-absolute top-50 start-50 translate-middle">
@@ -109,7 +109,7 @@ const Career = () => {
         <section className='great-place-section section-padding'>
           <div className="container">
             <div className="section-header text-center">
-              <h3 className="section-head w-50 m-auto">
+              <h3 className="section-head w-lg-50 m-auto">
                 What make Visioncraft a great place to work?
               </h3>
             </div>

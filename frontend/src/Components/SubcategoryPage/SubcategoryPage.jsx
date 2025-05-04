@@ -1,44 +1,76 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { products } from "../../Data/ProductData";
 import "./SubcategoryPage.css";
 import ItemNew from "../ItemNew/ItemNew";
+import {
+  API_BASE_URL,
+  fetchProductsBySubCategory,
+  fetchSubCategoryByName,
+} from "../../Services/api";
 
 const SubcategoryPage = () => {
   const { id } = useParams();
+  const [products, setProducts] = useState([]);
+  const [subCategoryName, setSubCategoryName] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  console.log("URL Subcategory ID:", id);
+  useEffect(() => {
+    const loadSubcategoryAndProducts = async () => {
+      try {
+        setLoading(true);
+        setError(null);
 
-  // Flatten subcategories and find the matching one
-  const subcategory = products
-    .flatMap((category) => category.subCategories || []) // Ensure subCategories exists
-    .find((sub) => sub.name.toLowerCase() === id.toLowerCase()); // Case insensitive match
+        // 1. Fetch subcategory by name
+        const subCategory = await fetchSubCategoryByName(id);
+        if (!subCategory?._id) {
+          setError("Subcategory not found.");
+          return;
+        }
 
-  console.log("Found Subcategory:", subcategory);
+        setSubCategoryName(subCategory.name);
 
-  // If no subcategory is found, show a message
-  if (!subcategory) {
-    return <h2 className="text-center">Subcategory not found</h2>;
-  }
+        // 2. Fetch products using subcategory _id
+        const productsData = await fetchProductsBySubCategory(subCategory._id);
+        setProducts(productsData);
+      } catch (err) {
+        console.error(err);
+        setError("Could not fetch products.");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  // Filtered products from the subcategory
-  const filteredProducts = subcategory.products || [];
+    if (id) {
+      loadSubcategoryAndProducts();
+    }
+  }, [id]);
 
   return (
     <section className="subcategory-section section-padding">
       <div className="container">
-        <h2 className="text-center">{subcategory.name} Products</h2>
-        <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((item) => (
-              <div className="col" key={item.id}>
-                <ItemNew id={item.id} image={item.featuredImage} itemName={item.name} />
-              </div>
-            ))
-          ) : (
-            <p>No products found.</p>
-          )}
+        <div className="section-header text-center">
+          <h3 className="section-head">{subCategoryName} Products</h3>
         </div>
+        {loading ? (
+          <p className="text-center">Loading...</p>
+        ) : error ? (
+          <p className="text-center text-danger">{error}</p>
+        ) : products.length > 0 ? (
+          <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
+            {products.map((item) => (
+              <div className="col" key={item._id}>
+                <ItemNew
+                  id={item._id}
+                  image={`${API_BASE_URL}/uploads/featured/${item.featuredImage}`}
+                  itemName={item.name}
+                />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-center">No products found.</p>
+        )}
       </div>
     </section>
   );

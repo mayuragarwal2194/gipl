@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './ProductDetail.css';
 import { useParams } from 'react-router-dom';
-import { fetchProductById } from '../../Services/api';
+import { API_BASE_URL, fetchProductById } from '../../Services/api';
 import ContactForm from '../../Pages/Contact/ContactForm/ContactForm';
 import RelatedProducts from '../RelatedProducts/RelatedProducts';
 
@@ -34,7 +34,7 @@ const ProductDetail = () => {
       <div
         className="product-header position-relative"
         style={{
-          backgroundImage: `url(http://localhost:5000/uploads/banner/${product.bannerImage || 'default-banner.jpg'})`,
+          backgroundImage: `url(${API_BASE_URL}/uploads/banner/${product.bannerImage || 'default-banner.jpg'})`,
         }}
       >
         <div className="detail-banner-overlay w-100 h-100 px-lg-5 d-flex align-items-center justify-content-center">
@@ -52,7 +52,7 @@ const ProductDetail = () => {
                     className={`about-subproduct d-flex align-items-center gap-5 ${idx % 2 === 0 ? '' : 'flex-row-reverse'}`}
                   >
                     <div className='product-about-image w-50'>
-                      <img src={`http://localhost:5000/uploads/subProducts/about/${subProduct.aboutImage}`} className='w-100 h-100 rounded' alt="" />
+                      <img src={`${API_BASE_URL}/uploads/subProducts/about/${subProduct.aboutImage}`} className='w-100 h-100 rounded' alt="" />
                     </div>
                     <div className="subproduct-description w-50">
                       <h1 className='subproduct-name'>{subProduct.name}</h1>

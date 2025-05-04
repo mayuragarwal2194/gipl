@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { API_BASE_URL } from "../../services/api";
 
 const Subscribers = () => {
   const [subscribers, setSubscribers] = useState([]);
@@ -11,7 +12,7 @@ const Subscribers = () => {
 
   const fetchSubscribers = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/v1/newsletter");
+      const response = await fetch(`${API_BASE_URL}/api/v1/newsletter`);
       const data = await response.json();
       setSubscribers(data);
       setLoading(false);
@@ -31,7 +32,7 @@ const Subscribers = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const response = await fetch(`http://localhost:5000/api/v1/newsletter/${id}`, {
+          const response = await fetch(`${API_BASE_URL}/api/v1/newsletter/${id}`, {
             method: "DELETE",
           });
 

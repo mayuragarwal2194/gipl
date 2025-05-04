@@ -12,20 +12,16 @@ const Announcement = () => {
               <div className="d-md-flex align-items-center gap-3">
                 <div className="announcement"> Email: enquiry.gajpati@gmail.com</div>
                 <div>
-                   Tel: +91 95712 99666 
+                  Tel: +91 95712 99666
                 </div>
               </div>
-              <ul
-                className="announcement-timer text-uppercase list-unstyled ps-0 d-flex letter-216 mb-0"
+              <Link
+                to={'/product'}
+                className="announcement-btn text-decoration-none text-white"
+                role="button"
               >
-                <Link
-                  to={'/product'}
-                  className="announcement-btn text-decoration-none text-white"
-                  role="button"
-                >
-                  Explore Now
-                </Link>
-              </ul>
+                Explore Now
+              </Link>
             </div>
           </div>
         </div>
@@ -34,7 +30,13 @@ const Announcement = () => {
         <div className="announcement-bg bg-black w-100 py-3">
           <div className="px-3 px-lg-5">
             <div className="text-white text-center text-uppercase">
-              <div className="announcement">super Sale Up to 40% off</div>
+              <Link
+                to={'/product'}
+                className="announcement-btn text-decoration-none text-white"
+                role="button"
+              >
+                Explore Now
+              </Link>
             </div>
           </div>
         </div>
