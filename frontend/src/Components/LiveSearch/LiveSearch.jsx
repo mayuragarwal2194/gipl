@@ -1,22 +1,34 @@
-import React, { useState } from "react";
-import { products } from "../../Data/ProductData";
+import React, { useEffect, useState } from "react";
 import ItemNew from "../../Components/ItemNew/ItemNew";
+import { fetchAllProducts, API_BASE_URL } from "../../Services/api";
 
 const LiveSearch = ({ onClose }) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [allProducts, setAllProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // Filter products based on search query
-  const filteredProducts = products
-    .flatMap((category) => category.subCategories || []) // Extract all subcategories
-    .flatMap((subCategory) => subCategory.products || []) // Extract all products
-    .filter((product) =>
-      searchQuery
-        ? product.name.toLowerCase().includes(searchQuery.toLowerCase())
-        : false // Do not show any products if searchQuery is empty
-    );
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const data = await fetchAllProducts(); // Expecting a flat array of product objects
+        setAllProducts(data); // Set the full list
+      } catch (error) {
+        console.error("Failed to fetch products:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getProducts();
+  }, []);
+
+  const filteredProducts = allProducts.filter((product) =>
+    searchQuery
+      ? product.name.toLowerCase().includes(searchQuery.toLowerCase())
+      : false
+  );
 
   const handleItemClick = () => {
-    // Close the modal when an item is clicked
     onClose();
   };
 
@@ -45,17 +57,16 @@ const LiveSearch = ({ onClose }) => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-            {/* Display Filtered Products */}
             <div className="results-container row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-              {searchQuery && filteredProducts.length > 0 ? (
+              {loading ? (
+                <p>Loading products...</p>
+              ) : searchQuery && filteredProducts.length > 0 ? (
                 filteredProducts.map((product) => (
-                  <div
-                    key={product.id}
-                    onClick={handleItemClick} // Close modal on item click
-                  >
+                  <div key={product._id} onClick={handleItemClick}>
                     <ItemNew
-                      id={product.id}
-                      image={product.featuredImage}
+                      key={product._id}
+                      id={product._id}
+                      image={`${API_BASE_URL}/uploads/featured/${product.featuredImage}`}
                       itemName={product.name}
                     />
                   </div>

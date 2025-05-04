@@ -38,12 +38,12 @@ const Career = () => {
                 <p className='career-description pe-lg-3'>
                   We actively support self-development and career advancement, providing opportunities to learn and grow. Our development team is always looking for talented individuals who thrive in a collaborative and excellence-driven environment.
                 </p>
-                <p className='career-description mb-0'>Navigate below to see our current open positions!</p>
+                {/* <p className='career-description mb-0'>Navigate below to see our current open positions!</p> */}
                 {/* <button className='ff-btn ff-btn-fill-dark text-capitalize text-decoration-none d-inline-block w-fit-content'>
                   <span className=''>Open Options</span>
                   <i className="fa-solid fa-arrow-down ms-2"></i>
                 </button> */}
-                <BtnFillBlack btn_name={'See Options'} link={'/about'} />
+                {/* <BtnFillBlack btn_name={'See Options'} link={'/about'} /> */}
               </div>
               <div className="w-lg-50 d-lg-flex mt-5 mt-lg-0">
                 <div className="career-video position-relative">
@@ -57,47 +57,16 @@ const Career = () => {
                     width="100%"
                     height="100%"
                     className="object-cover rounded-circle"
-                    // autoPlay
+                    autoPlay
                     loop
                     playsInline
                     muted
-                    // controls
                     preload="metadata"
-                    poster="/videos/my-video-poster.jpg" // Ensure you have a poster image in the same folder
+                    poster="/videos/my-video-poster.jpg"
                     onLoadedData={handleLoadedData}
                   >
-                    <source
-                      src="/videos/myVideo.mp4#t=0.5"
-                      type="video/mp4"
-                    />
+                    <source src="/videos/myVideo.mp4#t=0.5" type="video/mp4" />
                   </video>
-                  {/* Custom Play Button */}
-                  <div
-                    className="custom-play-btn position-absolute top-50 start-50 translate-middle d-none d-lg-inline-block"
-                    onClick={handlePlayPauseButtonClick}
-                    style={{ cursor: 'pointer' }}
-                  >
-                    {isPlaying ? (
-                      <div className="pause-icon bg-white d-flex align-items-center justify-content-center rounded-circle">
-                        <i className="ri-pause-large-line fe-bold"></i>
-                      </div>
-                    ) : (
-                      <svg
-                        width="50"
-                        height="50"
-                        viewBox="0 0 70 70"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M70 35C70 54.3302 54.3302 70 35 70C15.6698 70 0 54.3302 0 35C0 15.6698 15.6698 0 35 0C54.3302 0 70 15.6698 70 35ZM43.75 35L30.625 25.375V44.625L43.75 35Z"
-                          fill="white"
-                        />
-                      </svg>
-                    )}
-                  </div>
                 </div>
                 <div className="career-top-bg user-select-none">
                   <img src="/images/career-top-bg.png" alt="" />
