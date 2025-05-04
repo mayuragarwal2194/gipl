@@ -52,7 +52,7 @@ const ProductDetail = () => {
                     className={`about-subproduct d-flex align-items-center gap-5 ${idx % 2 === 0 ? '' : 'flex-row-reverse'}`}
                   >
                     <div className='product-about-image w-50'>
-                      <img src={`${API_BASE_URL}/uploads/subProducts/about/${subProduct.aboutImage}`} className='w-100 h-100 rounded' alt="" />
+                      <img src={`${API_BASE_URL}/uploads/subproducts/about/${subProduct.aboutImage}`} className='w-100 h-100 rounded' alt="" />
                     </div>
                     <div className="subproduct-description w-50">
                       <h1 className='subproduct-name'>{subProduct.name}</h1>
