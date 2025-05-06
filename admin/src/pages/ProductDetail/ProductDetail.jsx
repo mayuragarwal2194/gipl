@@ -36,7 +36,7 @@ const ProductDetail = () => {
     product.bannerImage ? `${API_BASE_URL}/uploads/banner/${product.bannerImage}` : "/default-banner.jpg";
 
   const getAboutImageUrl = (filename) =>
-    filename ? `${API_BASE_URL}/uploads/subProducts/about/${filename}` : "";
+    filename ? `${API_BASE_URL}/uploads/subproducts/about/${filename}` : "";
 
   return (
     <div className="product-detail">
