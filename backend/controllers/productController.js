@@ -300,3 +300,34 @@ exports.updateProduct = async (req, res) => {
   }
 };
 
+const slugify = (str) =>
+  str
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9\-]/g, "");
+
+exports.getProductsBySubCategorySlug = async (req, res) => {
+  try {
+    const slug = req.params.slug;
+
+    const subCategories = await SubCategory.find();
+
+    const subCategory = subCategories.find((sc) =>
+      slugify(sc.name) === slug.toLowerCase()
+    );
+
+    if (!subCategory) {
+      return res.status(404).json({ message: "Subcategory not found" });
+    }
+
+    const products = await Product.find({ subCategoryId: subCategory._id })
+      .populate("subCategoryId");
+
+    res.json(products);
+  } catch (error) {
+    console.error("Error in getProductsBySubCategorySlug:", error);
+    res.status(500).json({ message: "Failed to fetch products" });
+  }
+}
+

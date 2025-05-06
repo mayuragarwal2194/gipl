@@ -97,3 +97,17 @@ export const fetchSubCategoryByName = async (name) => {
   return res.json();
 };
 
+export const fetchProductsBySubCategoryName = async (name) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/v1/products/subcategory/${name}`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch products by subcategory name");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error in fetchProductsBySubCategoryName:", error);
+    throw error;
+  }
+};
+
+

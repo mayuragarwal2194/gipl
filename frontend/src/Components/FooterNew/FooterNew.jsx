@@ -1,15 +1,44 @@
 /* eslint-disable */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './FooterNew.css';
 import { Link } from 'react-router-dom';
 import { products } from '../../Data/ProductData';
-import { subscribeToNewsletter } from '../../Services/api';
+import { subscribeToNewsletter, getAllCategories } from '../../Services/api';
 import Swal from "sweetalert2";
 
 const FooterNew = () => {
 
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const [bitumenProducts, setBitumenProducts] = useState([]);
+  const [gabionProducts, setGabionProducts] = useState([]);
+
+  // utils/slugify.js
+  const slugify = (str) =>
+    str.toLowerCase().trim().replace(/\s+/g, "-").replace(/[^a-z0-9\-]/g, "");
+
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const data = await getAllCategories();
+        const filtered = data.filter(cat => cat.name.toLowerCase() !== 'uncategorized');
+        setCategories(filtered);
+
+        const bitumen = filtered.find(cat => cat.name.toLowerCase() === 'bituminous products');
+        const gabion = filtered.find(cat => cat.name.toLowerCase() === 'gabion products');
+
+        setBitumenProducts(bitumen?.children || []);
+        setGabionProducts(gabion?.children || []);
+      } catch (error) {
+        console.error('[ERROR] Failed to fetch categories:', error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
 
   const handleSubscribe = async () => {
     if (!email) {
@@ -43,24 +72,6 @@ const FooterNew = () => {
       setLoading(false);
     }
   };
-
-
-  // Extract Bitumen and Gabion Products
-  const bitumenProducts = products
-    .find((category) => category.shortName === "Bitumens")
-    ?.subCategories?.map((subCategory) => ({
-      id: subCategory.name, // Using subcategory name as ID
-      name: subCategory.name, // Display subcategory name
-      featuredImage: subCategory.products?.[0]?.featuredImage || "", // First product’s image as a preview
-    })) || [];
-
-  const gabionProducts = products
-    .find((category) => category.shortName === "Gabions")
-    ?.subCategories?.map((subCategory) => ({
-      id: subCategory.name, // Using subcategory name as ID
-      name: subCategory.name, // Display subcategory name
-      featuredImage: subCategory.products?.[0]?.featuredImage || "", // First product’s image as a preview
-    })) || [];
 
 
   return (
@@ -98,94 +109,6 @@ const FooterNew = () => {
                 </div>
               </div>
               <div className="col-12 col-lg-9">
-                {/* <div className="row">
-                  <div className="col-12 col-lg-4">
-                    <div className="footer-wrapper w-100 w-fit-content">
-                      <h5 className="footer-head text-uppercase fw-normal footer-collection-head letter-216">
-                        Bitumen Products
-                      </h5>
-                      <div className="footer-collection mt-3">
-                        <ul className="text-capitalize list-unstyled mb-0">
-                          <li>
-                            <Link to={'/'} className="text-decoration-none">
-                              Modified Bitumen
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to={'/'} className="text-decoration-none">
-                              Bitumen Emulsions
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to={'/'} className="text-decoration-none"> Micro Surfacing Emulsions </Link>
-                          </li>
-                          <li>
-                            <Link to={'/'} className="text-decoration-none"> Penetration Grade Bitumen </Link>
-                          </li>
-                          <li>
-                            <Link to={'/'} className="text-decoration-none"> Viscosity Grade Bitumen </Link>
-                          </li>
-                          <li>
-                            <Link to={'/'} className="text-decoration-none"> Industrial Grade Mastic Bitumen </Link>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 col-lg-4">
-                    <div className="footer-wrapper w-100 w-fit-content mt-4 mt-lg-0">
-                      <h5 className="footer-head text-uppercase fw-normal letter-216">
-                        Construction Chemicals
-                      </h5>
-                      <div className="footer-quick-links mt-3">
-                        <ul className="ps-0 mb-0">
-                          <li className="list-unstyled underline-hover-effect">
-                            <Link to={'/'} className="text-decoration-none mb-0 pb-0">
-                              Concrete Admixture
-                            </Link>
-                          </li>
-                          <li className="list-unstyled underline-hover-effect">
-                            <Link to={'/'} className="text-decoration-none mb-0 pb-0">
-                              Curing Compounds
-                            </Link>
-                          </li>
-                          <li className="list-unstyled underline-hover-effect">
-                            <Link to={'/contact'} className="text-decoration-none mb-0 pb-0">
-                              Grout & Anchors
-                            </Link>
-                          </li>
-                          <li className="list-unstyled underline-hover-effect">
-                            <Link to={'/'} className="text-decoration-none mb-0 pb-0">
-                              Readymix Mortar & Adhesive
-                            </Link>
-                          </li>
-                          <li className="list-unstyled underline-hover-effect">
-                            <Link to={'/'} className="text-decoration-none mb-0 pb-0">
-                              Sealants
-                            </Link>
-                          </li>
-                          <li className="list-unstyled underline-hover-effect">
-                            <Link to={'/'} className="text-decoration-none mb-0 pb-0">
-                              Surface Treatment
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 col-lg-4">
-                    <div className="mt-4 mt-lg-0">
-                      <h5 className="footer-head text-uppercase fw-normal mb-3 letter-216">
-                        About the shop
-                      </h5>
-                      <p className="line-height-24 text-creame">
-                        <span><strong>Corporate Address</strong> : 21, 4th Floor, “4D” Square.
-                          Opp. Govt. Engineering College Visat – Gandhinagar Road Motera – Sabarmati, Ahmedabad – 380005
-                          Gujarat, INDIA</span>
-                      </p>
-                    </div>
-                  </div>
-                </div> */}
                 <div className="row">
                   {/* Bitumen Products */}
                   <div className="col-12 col-lg-4">
@@ -196,8 +119,8 @@ const FooterNew = () => {
                       <div className="footer-collection mt-3">
                         <ul className="text-capitalize list-unstyled mb-0">
                           {bitumenProducts.map((product) => (
-                            <li key={product.id}>
-                              <Link to={`/subcategory/${product.id}`} className="text-decoration-none">
+                            <li key={product._id}>
+                              <Link to={`/subcategory/${slugify(product.name)}`} className="text-decoration-none">
                                 {product.name}
                               </Link>
                             </li>
@@ -216,8 +139,8 @@ const FooterNew = () => {
                       <div className="footer-collection mt-3">
                         <ul className="text-capitalize list-unstyled mb-0">
                           {gabionProducts.map((product) => (
-                            <li key={product.id}>
-                              <Link to={`/subcategory/${product.id}`} className="text-decoration-none">
+                            <li key={product._id}>
+                              <Link to={`/subcategory/${slugify(product.name)}`} className="text-decoration-none">
                                 {product.name}
                               </Link>
                             </li>
@@ -226,6 +149,7 @@ const FooterNew = () => {
                       </div>
                     </div>
                   </div>
+
                   <div className="col-12 col-lg-4">
                     <div className="mt-4 mt-lg-0">
                       <h5 className="footer-head text-uppercase fw-normal mb-3 letter-216">
@@ -237,29 +161,12 @@ const FooterNew = () => {
                           184121
                         </span>
                       </p>
-                        <div>9571299666</div>
+                      <div>9571299666</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <ul className="footer-navs d-flex align-items-center justify-content-center justify-content-md-start gap-3 flex-wrap list-unstyled mt-4 mt-lg-5">
-              {/* <li className="share-link mb-0">
-                <Link to={'/'} className="d-block mb-0">
-                  <i className="ri-facebook-fill"></i>
-                </Link>
-              </li> */}
-              {/* <li className="share-link mb-0">
-                <Link to={'/'} className="d-block mb-0">
-                  <i className="ri-twitter-x-fill"></i>
-                </Link>
-              </li> */}
-              {/* <li className="share-link mb-0">
-                <Link to={'/'} className="d-block mb-0">
-                  <i className="ri-instagram-line"></i>
-                </Link>
-              </li> */}
-            </ul>
           </div>
         </div>
         <div className="footer-below text-center text-lg-start mt-4">

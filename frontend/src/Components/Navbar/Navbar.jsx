@@ -3,7 +3,7 @@ import './Navbar.css';
 import { Link, useLocation } from 'react-router-dom';
 import Hamburger from './Hamburger/Hamburger';
 import LiveSearch from '../LiveSearch/LiveSearch';
-import { getAllCategories } from '../../Services/api'; // <- Update path as needed
+import { getAllCategories } from '../../Services/api';
 
 const Navbar = ({ isSticky }) => {
   const location = useLocation();

@@ -11,9 +11,9 @@ import Product from './Pages/Product/Product';
 import ScrollToTopBtn from './Components/ScrollToTopBtn/ScrollToTopBtn';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 import Career from './Pages/Career/Career';
-import SubcategoryPage from './Components/SubcategoryPage/SubcategoryPage';
 import Blog from './Pages/Blog/Blog';
 import BlogDetail from './Pages/Blog/BlogDetail/BlogDetail';
+import SubCategoryProducts from './Components/SubcategoryPage/SubCategoryProducts';
 
 const App = () => {
   return (
@@ -57,7 +57,7 @@ function AppContent() {
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/product/:productId' element={<ProductDetail />} />
-        <Route path="/subcategory/:id" element={<SubcategoryPage />} />
+        <Route path="/subcategory/:slug" element={<SubCategoryProducts />} />
         <Route path='/product' element={<Product />} />
         <Route path='/careers' element={<Career />} />
         <Route path='/blogs' element={<Blog />} />
