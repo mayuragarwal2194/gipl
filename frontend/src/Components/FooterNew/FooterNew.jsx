@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import './FooterNew.css';
 import { Link } from 'react-router-dom';
-import { products } from '../../Data/ProductData';
 import { subscribeToNewsletter, getAllCategories } from '../../Services/api';
 import Swal from "sweetalert2";
 

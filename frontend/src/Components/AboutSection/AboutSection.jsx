@@ -36,7 +36,7 @@ const AboutSection = () => {
                 /> */}
                 </div>
                 <div className="about-image-big flex-shrink-0">
-                  <img src="images/hero1.jpg" className="img-fluid" alt="" />
+                  <img src="images/hero1.webp" className="img-fluid" alt="" />
                 </div>
               </div>
             </div>
