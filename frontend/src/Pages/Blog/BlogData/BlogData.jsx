@@ -4,7 +4,7 @@ export const blogData = [
     title: 'How High-Performance Bitumen Is Revolutionizing Modern Road Construction Worldwide',
     shortName: 'Performance Grade Bitumen',
     date: 'December 20, 2023',
-    image: '/images/blogImages/blog_high_performance_bitumen.jpg',
+    image: '/images/blogImages/blog_high_performance_bitumen.webp',
     content: `
       <p>Nowadays, the demand for better, stronger, and longer-lasting roadways has never been higher. At the heart of this transformation is high-performance bitumen—a game-changing material that's redefining global road infrastructure standards. With innovative formulations and superior properties, this new generation of bitumen ensures better durability, flexibility, and environmental performance.</p>
 
@@ -76,7 +76,7 @@ export const blogData = [
     id: 'gabion-structures-erosion-control',
     title: 'Gabion Structures: The Smart, Eco-Friendly Solution for Erosion Control and Retaining Walls',
     shortName: 'Gabion Structures Erosion Control',
-    image: '/images/blogImages/blog_gabion_structure.jpg',
+    image: '/images/blogImages/blog_gabion_structure.webp',
     date: '2025-04-30',
     content: `
     <p>Imagine a construction solution that is not only strong and practical but also blends beautifully with the natural environment. That’s exactly what gabion structures offer. As industries and homeowners look for sustainable building materials that don’t compromise on durability or design, gabions have emerged as a frontrunner. From city landscapes to rural terrains, gabions are redefining how we think about retaining walls and erosion control.</p>
@@ -134,7 +134,7 @@ export const blogData = [
     id: 'top-5-construction-chemicals',
     title: 'Top 5 Construction Chemicals Every Project Needs for Long-Term Durability',
     shortName: 'Top 5 Construction Chemicals',
-    image: '/images/blogImages/blog_construction_chemical.jpg',
+    image: '/images/blogImages/blog_construction_chemical.webp',
     date: '2025-04-30',
     content: `
       <p>In the fast-paced world of global infrastructure, where timelines are tight and expectations high, modern construction is no longer defined by just steel and concrete. It's defined by chemistry—specifically, the intelligent use of construction chemicals that extend the life of buildings, enhance performance, and minimize future maintenance.</p>

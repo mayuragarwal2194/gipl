@@ -57,6 +57,7 @@ const BestProducts = () => {
     slidesToShow: 4,
     slidesToScroll: 4,
     arrows: true,
+    accessibility: false,
     responsive: [
       {
         breakpoint: 480,

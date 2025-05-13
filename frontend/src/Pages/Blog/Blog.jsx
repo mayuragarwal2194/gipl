@@ -8,17 +8,17 @@ const Blog = () => {
     {
       id: 'performance-grade-bitumen',
       title: 'Performance Grade Bitumen',
-      image: '/images/blogImages/blog_high_performance_bitumen.jpg',
+      image: '/images/blogImages/blog_high_performance_bitumen_small.webp',
     },
     {
       id: 'gabion-structures-erosion-control',
       title: 'Gabion Structures Erosion Control',
-      image: '/images/blogImages/blog_gabion_structure.jpg',
+      image: '/images/blogImages/blog_gabion_structure_small.webp',
     },
     {
       id: 'top-5-construction-chemicals',
       title: 'Top 5 Construction Chemicals',
-      image: '/images/blogImages/blog_construction_chemical.jpg',
+      image: '/images/blogImages/blog_construction_chemical_small.webp',
     },
   ];
 
