@@ -27,37 +27,30 @@ const allowedOrigins = [
   "http://localhost:5174",  // For local development (if any)
   "https://admin.gajpatiindustries.com",  // Your admin frontend domain
   "https://gajpatiindustries.com",  // If you have any other subdomains to allow
+  "https://www.gajpatiindustries.com",
 ];
 
 // CORS configuration
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      // Allow no origin (for local testing) or check if the origin is allowed
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true, // Allow sending cookies and authentication headers
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed HTTP methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
-    exposedHeaders: ["Content-Disposition"], // For file downloads
-  })
-);
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  exposedHeaders: ["Content-Disposition"],
+};
 
-// Handle preflight requests for CORS (necessary for browsers with complex requests)
-app.options("*", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");  // Or use allowedOrigins for production
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.sendStatus(200);
-});
+app.use(cors(corsOptions));
 
+// Serve uploaded files
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
+// Root route
 app.get("/", (req, res) => {
   res.send("Server is up and running!");
 });
