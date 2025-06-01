@@ -66,13 +66,26 @@
     padding-bottom: 8px;
     overflow-x: scroll;
     margin-top: 16px;
+    margin-bottom: 34px;
   }
 
   .best-section .best-tab {
     font-size: 20px;
   }
 
-  .best-section .slick-dots{
-    bottom: -36px;
+  #best-sliderContainer .slick-dots{
+    /* bottom: -47px; */
+    position: static !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .itemnew img{
+    height: 280px;
+  }
+
+  #best-sliderContainer .slick-dots{
+    bottom: 2px;
+    /* position: static !important; */
   }
 }

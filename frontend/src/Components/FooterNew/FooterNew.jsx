@@ -173,11 +173,11 @@ const FooterNew = () => {
             <div className="copyright-footer d-flex align-items-center justify-content-between">
               <div className="text-lg-start text-center">
                 <p className="mb-0 text-creame">
-                  &copy; 2023 Leo & Violette. All Rights Reserved
+                  &copy; 2025 Gajpati Industries. All Rights Reserved
                 </p>
               </div>
               <div className="mt-lg-3 mt-lg-0 flex-1">
-                <ul className="footer-bottom-navs list-unstyled d-flex justify-content-center justify-content-lg-end mb-0">
+                <ul className="footer-bottom-navs list-unstyled d-flex justify-content-center justify-content-lg-end mb-0 gap-3 gap-lg-0">
                   <li>
                     <Link to={'/'} className="text-creame text-decoration-none ps-0 ps-lg-3">
                       Terms of Service

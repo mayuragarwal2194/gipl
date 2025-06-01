@@ -69,6 +69,16 @@ const BestProducts = () => {
           speed: 200,
         },
       },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          arrows: false,
+          dots: true,
+          speed: 200,
+        },
+      },
     ],
   };
 

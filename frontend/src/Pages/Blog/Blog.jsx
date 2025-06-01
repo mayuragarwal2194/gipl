@@ -23,7 +23,7 @@ const Blog = () => {
   ];
 
   return (
-    <section className="w-100 section-padding all-blog-section theme-bg">
+    <section className="w-100 section-padding all-blog-section theme-bg blog-page">
       <div className="container">
         <div className="section-header text-center mb-5">
           <h3 className="section-head">All Blogs</h3>

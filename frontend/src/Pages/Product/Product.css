@@ -11,11 +11,13 @@
 }
 
 @media (max-width: 576px) {
-  .product-display-main{
-    width: 100% !important;
-  }
-
   .mobile-filter-btn:focus{
     box-shadow: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-display-main{
+    width: 100% !important;
   }
 }

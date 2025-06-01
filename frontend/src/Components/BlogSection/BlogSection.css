@@ -58,6 +58,12 @@
 
 /* Css for Blog Section- End */
 
+@media (max-width: 576px) {
+	.blog-section .custom-blog-card .blog-image{
+		height: 190px !important;
+	}
+}
+
 @media (max-width: 768px) {
 	.blog-section .discover-btn {
 		padding: 12px 24px;
@@ -66,7 +72,21 @@
 		width: fit-content;
 	}
 
+	.blog-section .blog-title{
+		font-size: 16px;
+	}
+
 	#blog-sliderContainer .slide{
 		padding: 0 4px;
+	}
+
+	.blog-section .custom-blog-card .blog-image{
+		height: 130px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.custom-blog-card .blog-image {
+		height: 160px;
 	}
 }

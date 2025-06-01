@@ -30,7 +30,7 @@ const BlogSection = () => {
     slidesToShow: 3,
     slidesToScroll: 3,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 4000,
     cssEase: 'linear',
     responsive: [
       {

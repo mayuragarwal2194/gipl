@@ -25,6 +25,7 @@ app.use(cookieParser());
 const allowedOrigins = [
   "http://localhost:5173",  // For local development
   "http://localhost:5174",  // For local development (if any)
+  "http://192.168.1.2:5173",  // For local development (if any)
   "https://admin.gajpatiindustries.com",  // Your admin frontend domain
   "https://gajpatiindustries.com",  // If you have any other subdomains to allow
   "https://www.gajpatiindustries.com",

@@ -5,3 +5,9 @@
 	overflow: hidden;
 	color: var(--text-primary);
 }
+
+@media (max-width: 768px) {
+	.blog-page .custom-blog-card .blog-image{
+		height: 170px;
+	}
+}

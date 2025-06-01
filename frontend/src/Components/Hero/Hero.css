@@ -35,6 +35,12 @@
 
 @media (min-width: 992px) {
   .hero-section {
+    height: 576px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-section {
     height: 100vh;
   }
 }
