@@ -43,7 +43,12 @@ exports.addProduct = async (req, res) => {
 
     res.status(201).json({ message: '✅ Product created successfully', product });
   } catch (error) {
-    console.error('❌ Error in addProduct:', error);
+    console.error('❌ Error in addProduct:', {
+      message: error.message,
+      stack: error.stack,
+      body: req.body,
+      files: req.files,
+    });
     cleanupUploadedFiles(req.files);
     res.status(500).json({ message: 'Server Error', error: error.message });
   }
