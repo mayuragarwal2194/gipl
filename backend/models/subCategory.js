@@ -20,7 +20,7 @@ const subCategorySchema = new mongoose.Schema(
     ],
     active: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
   { timestamps: true }

@@ -1,7 +1,8 @@
+const mongoose = require("mongoose");
 const SubCategory = require("../models/subCategory");
 const Category = require("../models/category");
 const Product = require('../models/product');
-
+const slugify = require("slugify");
 const cleanName = (name) => name.trim().replace(/\s+/g, " ");
 
 exports.createSubCategory = async (req, res) => {
@@ -14,32 +15,63 @@ exports.createSubCategory = async (req, res) => {
         .json({ message: "Name is required and should be at least 3 characters long" });
     }
 
+    // Clean and generate slug
     name = cleanName(name);
-    active = typeof active === "boolean" ? active : active === "false" ? false : true;
+    const slug = slugify(name, { lower: true, strict: true });
 
-    // Check for duplicate subcategory name under the same parent
-    const existingSub = await SubCategory.findOne({ name, parentCategory });
-    if (existingSub) {
-      return res.status(400).json({ message: "SubCategory with this name already exists under the selected category" });
+    // Validate parentCategory ObjectId
+    if (!mongoose.Types.ObjectId.isValid(parentCategory)) {
+      return res.status(400).json({ message: "Invalid parent category ID" });
     }
 
-    const newSubCategory = new SubCategory({
-      name,
-      parentCategory,
-      children,
-      active,
-    });
+    // Optional: validate children
+    if (children && !Array.isArray(children)) {
+      return res
+        .status(400)
+        .json({ message: "Children must be an array of product IDs" });
+    }
 
+    // Normalize active only if provided, else let Mongoose apply default (false)
+    const parsedActive =
+      typeof active !== "undefined"
+        ? typeof active === "boolean"
+          ? active
+          : String(active).toLowerCase() !== "false"
+        : undefined;
+
+    // Check for duplicate name under same parent
+    const existingSub = await SubCategory.findOne({ name, parentCategory });
+    if (existingSub) {
+      return res
+        .status(400)
+        .json({
+          message:
+            "SubCategory with this name already exists under the selected category",
+        });
+    }
+
+    // Build new subcategory object
+    const newSubCategoryData = {
+      name,
+      slug,
+      parentCategory,
+      ...(children && { children }),
+      ...(typeof parsedActive !== "undefined" && { active: parsedActive }),
+    };
+
+    const newSubCategory = new SubCategory(newSubCategoryData);
     const savedSubCategory = await newSubCategory.save();
 
-    // Add subcategory to parent category
+    // Update parent category
     await Category.findByIdAndUpdate(parentCategory, {
       $addToSet: { children: savedSubCategory._id },
     });
 
     res.status(201).json(savedSubCategory);
   } catch (err) {
-    res.status(500).json({ message: "Failed to create subcategory", error: err.message });
+    res
+      .status(500)
+      .json({ message: "Failed to create subcategory", error: err.message });
   }
 };
 
@@ -57,6 +89,11 @@ exports.updateSubCategory = async (req, res) => {
     const { id } = req.params;
     let { name, parentCategory, children, active } = req.body;
 
+    // Validate ID
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ message: "Invalid subcategory ID" });
+    }
+
     const subCategory = await SubCategory.findById(id);
     if (!subCategory) {
       return res.status(404).json({ message: "SubCategory not found" });
@@ -64,32 +101,59 @@ exports.updateSubCategory = async (req, res) => {
 
     const updateData = {};
 
-    // Name check
+    // --- Handle Name (and Slug) ---
     if (name) {
       const cleanedName = cleanName(name);
       if (cleanedName.length < 3) {
-        return res.status(400).json({ message: "Name should be at least 3 characters long" });
+        return res.status(400).json({
+          message: "Name should be at least 3 characters long",
+        });
       }
 
-      // Check for duplicate name (excluding current subcategory)
-      const duplicate = await SubCategory.findOne({ name: cleanedName, _id: { $ne: id } });
-      if (duplicate) {
-        return res.status(400).json({ message: "SubCategory with this name already exists" });
+      const existing = await SubCategory.findOne({
+        name: cleanedName,
+        parentCategory: parentCategory || subCategory.parentCategory,
+        _id: { $ne: id },
+      });
+
+      if (existing) {
+        return res.status(400).json({
+          message:
+            "SubCategory with this name already exists under the selected category",
+        });
       }
 
       updateData.name = cleanedName;
+      updateData.slug = slugify(cleanedName, { lower: true, strict: true });
     }
 
-    // Handle active status
+    // --- Handle Active ---
     if (typeof active !== "undefined") {
-      updateData.active = typeof active === "boolean" ? active : active === "false" ? false : true;
+      updateData.active =
+        typeof active === "boolean"
+          ? active
+          : String(active).toLowerCase() !== "false";
     }
 
-    // Handle children
-    if (children) updateData.children = children;
+    // --- Handle Children ---
+    if (typeof children !== "undefined") {
+      if (!Array.isArray(children)) {
+        return res.status(400).json({
+          message: "Children must be an array of product IDs",
+        });
+      }
+      updateData.children = children;
+    }
 
-    // Handle parentCategory change
-    if (parentCategory && parentCategory !== String(subCategory.parentCategory)) {
+    // --- Handle Parent Category ---
+    if (
+      parentCategory &&
+      String(parentCategory) !== String(subCategory.parentCategory)
+    ) {
+      if (!mongoose.Types.ObjectId.isValid(parentCategory)) {
+        return res.status(400).json({ message: "Invalid parent category ID" });
+      }
+
       // Remove from old parent
       if (subCategory.parentCategory) {
         await Category.findByIdAndUpdate(subCategory.parentCategory, {
@@ -105,13 +169,19 @@ exports.updateSubCategory = async (req, res) => {
       updateData.parentCategory = parentCategory;
     }
 
-    const updated = await SubCategory.findByIdAndUpdate(id, updateData, { new: true });
+    // --- Perform Update ---
+    const updated = await SubCategory.findByIdAndUpdate(id, updateData, {
+      new: true,
+    });
 
     res.status(200).json(updated);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({
+      message: "Failed to update subcategory",
+      error: err.message,
+    });
   }
-}
+};
 
 exports.deleteSubCategory = async (req, res) => {
   try {

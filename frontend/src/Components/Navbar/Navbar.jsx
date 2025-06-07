@@ -83,60 +83,61 @@ const Navbar = ({ isSticky }) => {
                   </span>
                 </Link>
                 <div
-                  className="dropdown-content mega-menu px-lg-4"
+                  className="dropdown-content mega-menu px-lg-4 pb-5"
                   style={{ display: hoveredMenu === 'products' ? 'block' : 'none' }}
                 >
-                  <div className="w-100 d-flex justify-content-start gap-5 max-h-400 flex-wrap">
+                  <div className="w-100 d-flex gap-3 justify-content-between max-h-400 flex-wrap">
                     {categories.map((category, parentIndex) => (
                       <div className="mega-navs w-fit-content" key={category._id}>
                         <h5 className="mega-nav px-0 text-uppercase parent-category fw-bold active mb-3">
                           {category.name}
                         </h5>
                         <div className="select-menu">
-                          {category.children?.map((subCategory, subIndex) => (
-                            <div key={subCategory._id} className="subcategory-nav-item">
-                              <div
-                                className="select py-2 d-flex justify-content-between align-items-center"
-                                onClick={() => handleSubCategoryClick(parentIndex, subIndex)}
-                              >
-                                <span className="text-capitalize fw-semibold p-0">
-                                  {subCategory.name}
-                                </span>
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  className={`${activeSubCategory[parentIndex] === subIndex ? 'rotate' : ''}`}
-                                  width="1em"
-                                  height="1em"
-                                  viewBox="0 0 24 24"
+                          {category.children
+                            ?.filter((subCategory) => subCategory.active !== false) // Show only active ones
+                            .map((subCategory, subIndex) => (
+                              <div key={subCategory._id} className="subcategory-nav-item">
+                                <div
+                                  className="select py-2 d-flex justify-content-between align-items-center"
+                                  onClick={() => handleSubCategoryClick(parentIndex, subIndex)}
                                 >
-                                  <path
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="1.5"
-                                    d="m6 9l6 6l6-6"
-                                  />
-                                </svg>
+                                  <span className="text-capitalize fw-semibold p-0">
+                                    {subCategory.name}
+                                  </span>
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className={`${activeSubCategory[parentIndex] === subIndex ? 'rotate' : ''}`}
+                                    width="1em"
+                                    height="1em"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      fill="none"
+                                      stroke="currentColor"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth="1.5"
+                                      d="m6 9l6 6l6-6"
+                                    />
+                                  </svg>
+                                </div>
+                                <ul
+                                  className={`child-options-list list-unstyled ${activeSubCategory[parentIndex] === subIndex ? 'active' : ''}`}
+                                >
+                                  {subCategory.children?.map((product) => (
+                                    <li key={product._id} className="mb-1">
+                                      <Link
+                                        to={`/product/${product._id}`}
+                                        className="mega-nav px-0 child-category fw-500 text-uppercase mb-2"
+                                        onClick={() => setHoveredMenu(null)}
+                                      >
+                                        {product.name}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
                               </div>
-                              <ul
-                                className={`child-options-list list-unstyled ${activeSubCategory[parentIndex] === subIndex ? 'active' : ''
-                                  }`}
-                              >
-                                {subCategory.children?.map((product) => (
-                                  <li key={product._id} className="mb-1">
-                                    <Link
-                                      to={`/product/${product._id}`}
-                                      className="mega-nav px-0 child-category fw-500 text-uppercase mb-2"
-                                      onClick={() => setHoveredMenu(null)}
-                                    >
-                                      {product.name}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          ))}
+                            ))}
                         </div>
                       </div>
                     ))}
