@@ -89,7 +89,7 @@ const Navbar = ({ isSticky }) => {
                   <div className="w-100 d-flex gap-3 justify-content-between max-h-400 flex-wrap">
                     {categories.map((category, parentIndex) => (
                       <div className="mega-navs w-fit-content" key={category._id}>
-                        <h5 className="mega-nav px-0 text-uppercase parent-category fw-bold active mb-3">
+                        <h5 className="mega-nav user-select-none px-0 text-uppercase parent-category fw-bold active mb-3">
                           {category.name}
                         </h5>
                         <div className="select-menu">
@@ -101,7 +101,7 @@ const Navbar = ({ isSticky }) => {
                                   className="select py-2 d-flex justify-content-between align-items-center"
                                   onClick={() => handleSubCategoryClick(parentIndex, subIndex)}
                                 >
-                                  <span className="text-capitalize fw-semibold p-0">
+                                  <span className="text-capitalize fw-semibold p-0 user-select-none">
                                     {subCategory.name}
                                   </span>
                                   <svg
@@ -128,7 +128,7 @@ const Navbar = ({ isSticky }) => {
                                     <li key={product._id} className="mb-1">
                                       <Link
                                         to={`/product/${product._id}`}
-                                        className="mega-nav px-0 child-category fw-500 text-uppercase mb-2"
+                                        className="mega-nav user-select-none px-0 child-category fw-500 text-uppercase mb-2"
                                         onClick={() => setHoveredMenu(null)}
                                       >
                                         {product.name}
